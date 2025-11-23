@@ -5,16 +5,16 @@
 function corsHandler(req, res) {
   // Set CORS headers for all responses
   const origin = req.headers.origin;
-  
+
   // When credentials are true, we must specify the actual origin, not '*'
   // Allow localhost for development
   const allowedOrigins = [
     'http://localhost:5173',
-    'http://localhost:3000',
+    'https://kar-be.onrender.com',
     'http://127.0.0.1:5173',
     'http://127.0.0.1:3000'
   ];
-  
+
   // Set origin - use the request origin if it's allowed
   if (origin && allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
@@ -26,7 +26,7 @@ function corsHandler(req, res) {
     // No origin header (e.g., same-origin request or Postman)
     res.setHeader('Access-Control-Allow-Origin', '*');
   }
-  
+
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
     'Access-Control-Allow-Headers',

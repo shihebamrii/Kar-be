@@ -42,7 +42,7 @@ Backend complet pour l'application Karhabti, permettant aux utilisateurs de gér
    npm run dev
    ```
 
-   Le serveur sera accessible sur `http://localhost:3000`
+   Le serveur sera accessible sur `https://kar-be.onrender.com`
 
 ## 🌱 Seed de la base de données
 
@@ -531,7 +531,7 @@ kar-be/
 ## 🧪 Test avec Postman
 
 1. **Créer un utilisateur** :
-   - POST `http://localhost:3000/api/auth/register`
+   - POST `https://kar-be.onrender.com/api/auth/register`
    - Body (raw JSON) :
      ```json
      {
@@ -542,7 +542,7 @@ kar-be/
      ```
 
 2. **Se connecter** :
-   - POST `http://localhost:3000/api/auth/login`
+   - POST `https://kar-be.onrender.com/api/auth/login`
    - Body (raw JSON) :
      ```json
      {
@@ -553,7 +553,7 @@ kar-be/
    - Copier le token retourné
 
 3. **Créer un véhicule** :
-   - POST `http://localhost:3000/api/vehicles`
+   - POST `https://kar-be.onrender.com/api/vehicles`
    - Headers :
      - `Authorization: Bearer <token>`
    - Body (raw JSON) :
@@ -567,7 +567,7 @@ kar-be/
      ```
 
 4. **Ajouter un service** :
-   - POST `http://localhost:3000/api/services`
+   - POST `https://kar-be.onrender.com/api/services`
    - Headers :
      - `Authorization: Bearer <token>`
    - Body (raw JSON) :
@@ -582,19 +582,19 @@ kar-be/
      ```
 
 5. **Exporter en PDF** :
-   - GET `http://localhost:3000/api/export/pdf/<vehicle_id>`
+   - GET `https://kar-be.onrender.com/api/export/pdf/<vehicle_id>`
    - Headers :
      - `Authorization: Bearer <token>`
 
 6. **Voir les notifications** :
-   - GET `http://localhost:3000/api/notifications`
+   - GET `https://kar-be.onrender.com/api/notifications`
    - Headers :
      - `Authorization: Bearer <token>`
 
 **Routes Admin :**
 
 7. **Se connecter en tant qu'admin** :
-   - POST `http://localhost:3000/api/auth/login`
+   - POST `https://kar-be.onrender.com/api/auth/login`
    - Body (raw JSON) :
      ```json
      {
@@ -605,17 +605,17 @@ kar-be/
    - Copier le token admin retourné
 
 8. **Voir toutes les statistiques** :
-   - GET `http://localhost:3000/api/admin/stats`
+   - GET `https://kar-be.onrender.com/api/admin/stats`
    - Headers :
      - `Authorization: Bearer <admin_token>`
 
 9. **Lister tous les utilisateurs** :
-   - GET `http://localhost:3000/api/admin/users`
+   - GET `https://kar-be.onrender.com/api/admin/users`
    - Headers :
      - `Authorization: Bearer <admin_token>`
 
 10. **Lister tous les véhicules** :
-    - GET `http://localhost:3000/api/admin/vehicles`
+    - GET `https://kar-be.onrender.com/api/admin/vehicles`
     - Headers :
       - `Authorization: Bearer <admin_token>`
 
