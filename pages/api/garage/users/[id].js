@@ -1,8 +1,14 @@
 const dbConnect = require('../../../../utils/dbConnect');
 const User = require('../../../../models/User');
 const garageMiddleware = require('../../../../middlewares/garageMiddleware');
+const { corsHandler } = require('../../../../utils/cors');
 
 export default async function handler(req, res) {
+    // Handle CORS preflight and set headers
+    if (corsHandler(req, res)) {
+        return; // OPTIONS request handled
+    }
+
     const {
         query: { id },
         method,

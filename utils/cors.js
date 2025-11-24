@@ -7,12 +7,15 @@ function corsHandler(req, res) {
   const origin = req.headers.origin;
 
   // When credentials are true, we must specify the actual origin, not '*'
-  // Allow localhost for development
+  // Allow localhost for development and production URLs
   const allowedOrigins = [
     'http://localhost:5173',
+    'http://localhost:3000',
     'https://kar-be.onrender.com',
     'http://127.0.0.1:5173',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    // Add your production frontend URL here when deployed
+    // 'https://your-frontend-domain.com'
   ];
 
   // Set origin - use the request origin if it's allowed

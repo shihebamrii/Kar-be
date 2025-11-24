@@ -2,8 +2,14 @@ const dbConnect = require('../../../../utils/dbConnect');
 const Vehicle = require('../../../../models/Vehicle');
 const authMiddleware = require('../../../../middlewares/authMiddleware');
 const { generateVehicleHistoryPDF } = require('../../../../utils/pdfGenerator');
+const { corsHandler } = require('../../../../utils/cors');
 
 async function handler(req, res) {
+  // Handle CORS preflight and set headers
+  if (corsHandler(req, res)) {
+    return; // OPTIONS request handled
+  }
+
   // Seulement les requêtes GET sont autorisées
   if (req.method !== 'GET') {
     return res.status(405).json({
