@@ -14,6 +14,7 @@ function corsHandler(req, res) {
     'https://kar-be.onrender.com',
     'http://127.0.0.1:5173',
     'http://127.0.0.1:3000',
+    'https://karhabti-com-tn.vercel.app',
     // Add your production frontend URL here when deployed
     // 'https://your-frontend-domain.com'
   ];
