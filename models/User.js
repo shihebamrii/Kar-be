@@ -29,8 +29,13 @@ const userSchema = new mongoose.Schema({
   }],
   role: {
     type: String,
-    enum: ['user', 'admin'],
+    enum: ['user', 'admin', 'garage'],
     default: 'user'
+  },
+  garageId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    default: null
   },
   createdAt: {
     type: Date,
@@ -43,7 +48,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Hash le mot de passe avant de sauvegarder
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   // Ne hasher que si le mot de passe a été modifié
   if (!this.isModified('password')) {
     return next();
@@ -59,13 +64,13 @@ userSchema.pre('save', async function(next) {
 });
 
 // Mettre à jour updatedAt avant de sauvegarder
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   next();
 });
 
 // Méthode pour comparer les mots de passe
-userSchema.methods.comparePassword = async function(candidatePassword) {
+userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
