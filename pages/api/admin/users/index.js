@@ -24,6 +24,7 @@ async function handler(req, res) {
       const users = await User.find({})
         .select('-password')
         .populate('vehicles')
+        .populate('garageId', 'username email')
         .sort({ createdAt: -1 });
 
       return res.status(200).json({
